@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Azure.Storage.Blobs" Version="12.25.0" />
+    <PackageReference Include="IPO.Common.Infrastructure" Version="2.1.455523" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\IPO.Correspondence.Interfaces\IPO.Correspondence.Interfaces.csproj" />
+    <ProjectReference Include="..\IPO.Correspondence.Models\IPO.Correspondence.Models.csproj" />
+  </ItemGroup>
+
+</Project>

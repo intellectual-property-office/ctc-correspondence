@@ -1,0 +1,49 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+	<Nullable>enable</Nullable>
+    <UserSecretsId>fc55969d-f9c0-4d8b-9027-39ddd4746005</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <ApplicationInsightsResourceId>/subscriptions/d2ac4505-9c8f-4e77-9f17-794d4c242168/resourceGroups/rg-uksouth-dev-inss-common001/providers/microsoft.insights/components/appi-uksouth-dev-notificationalerts01</ApplicationInsightsResourceId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Azure.Messaging.ServiceBus" Version="7.20.1" />
+    <PackageReference Include="Azure.Storage.Blobs" Version="12.25.0" />
+    <PackageReference Include="IPO.Common.API" Version="2.1.455575" />
+  	<PackageReference Include="IPO.Configuration" Version="2.0.424214" />
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.23.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.28" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.28">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Options" Version="9.0.7" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="7.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Filters" Version="7.0.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\IPO.Correspondence.Data\IPO.Correspondence.Data.csproj" />
+    <ProjectReference Include="..\IPO.Correspondence.Gateways\IPO.Correspondence.Gateways.csproj" />
+    <ProjectReference Include="..\IPO.Correspondence.GovNotify\IPO.Correspondence.GovNotify.csproj" />
+    <ProjectReference Include="..\IPO.Correspondence.Health\IPO.Correspondence.Health.csproj" />
+    <ProjectReference Include="..\IPO.Correspondence.Interfaces\IPO.Correspondence.Interfaces.csproj" />
+    <ProjectReference Include="..\IPO.Correspondence.Messaging\IPO.Correspondence.Messaging.csproj" />
+    <ProjectReference Include="..\IPO.Correspondence.Models\IPO.Correspondence.Models.csproj" />
+    <ProjectReference Include="..\IPO.Correspondence.Services\IPO.Correspondence.Services.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="version">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+      <_Parameter1>IPO.Correspondence.BDDTests</_Parameter1>
+    </AssemblyAttribute>
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "IPO.Correspondence.Email": {
+      "commandName": "Project",
+      "commandLineArgs": "host start -p 7079"
+    }
+  }
+}

@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <AzureFunctionsVersion>v4</AzureFunctionsVersion>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <OutputType>Exe</OutputType>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Azure.Storage.Blobs" Version="12.25.0" />
+	<PackageReference Include="IPO.Configuration" Version="2.0.424214" />
+	<PackageReference Include="IPO.CTC.Common.Functions" Version="2.2.455989" />
+	<PackageReference Include="IPO.CTC.HealthChecks" Version="2.0.424215" />
+    <PackageReference Include="Microsoft.Azure.Functions.Worker.ApplicationInsights" Version="2.0.0" />
+    <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.Http" Version="3.3.0" />
+    <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore" Version="2.0.2" />
+    <PackageReference Include="Microsoft.Azure.Functions.Worker" Version="2.51.0" />
+    <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="2.0.7" />
+    <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.ServiceBus" Version="5.23.0" />
+    <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.Timer" Version="4.3.1" />
+    <PackageReference Include="Microsoft.ApplicationInsights.WorkerService" Version="2.22.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IPO.Correspondence.Data\IPO.Correspondence.Data.csproj" />
+    <ProjectReference Include="..\IPO.Correspondence.GovNotify\IPO.Correspondence.GovNotify.csproj" />
+    <ProjectReference Include="..\IPO.Correspondence.Health\IPO.Correspondence.Health.csproj" />
+    <ProjectReference Include="..\IPO.Correspondence.Models\IPO.Correspondence.Models.csproj" />
+    <ProjectReference Include="..\IPO.Correspondence.Services\IPO.Correspondence.Services.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="host.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="local.settings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>Never</CopyToPublishDirectory>
+    </None>
+  </ItemGroup>
+</Project>
