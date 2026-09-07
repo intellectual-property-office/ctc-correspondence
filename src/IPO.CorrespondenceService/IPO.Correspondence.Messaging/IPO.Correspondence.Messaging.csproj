@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-	  <PackageReference Include="IPO.Common.API" Version="2.1.455575" />   
+	  <PackageReference Include="IPO.Common.API" Version="2.2.461667" />   
 	  <PackageReference Include="Azure.Messaging.ServiceBus" Version="7.20.1" />     
   </ItemGroup>
 

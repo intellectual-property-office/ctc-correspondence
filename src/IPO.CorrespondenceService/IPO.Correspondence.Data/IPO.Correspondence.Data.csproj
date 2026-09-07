@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-	  <PackageReference Include="IPO.Common.Infrastructure" Version="2.1.455523" />
+	  <PackageReference Include="IPO.Common.Infrastructure" Version="2.2.461532" />
 	  <PackageReference Include="Microsoft.Data.SqlClient" Version="6.0.2" />
 	  <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.28" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.28">

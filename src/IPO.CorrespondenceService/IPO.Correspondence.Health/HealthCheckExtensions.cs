@@ -190,12 +190,12 @@ namespace IPO.Correspondence.Health
             var cleaned = new string(versionString.Where(e => char.IsDigit(e) || e == '.').ToArray());
 
             var version = string.IsNullOrWhiteSpace(cleaned)
-                ? new Version("0.0")
+                ? new System.Version("0.0")
                 : cleaned.Contains(".")
-                    ? new Version(cleaned)
-                    : new Version($"{cleaned}.0");
+                    ? new System.Version(cleaned)
+                    : new System.Version($"{cleaned}.0");
 
-            return version.Major.ToString();
+            return version.Major!.ToString();
         }
     }
 }

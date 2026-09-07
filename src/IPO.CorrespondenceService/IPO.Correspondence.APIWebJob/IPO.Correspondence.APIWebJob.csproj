@@ -14,7 +14,7 @@
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="8.0.28" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="9.0.7" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Console" Version="8.0.0" />
-		<PackageReference Include="IPO.Common.API" Version="2.1.455575" />
+		<PackageReference Include="IPO.Common.API" Version="2.2.461667" />
 	</ItemGroup>
 	<ItemGroup>
 		<ProjectReference Include="..\IPO.Correspondence.Data\IPO.Correspondence.Data.csproj" />
