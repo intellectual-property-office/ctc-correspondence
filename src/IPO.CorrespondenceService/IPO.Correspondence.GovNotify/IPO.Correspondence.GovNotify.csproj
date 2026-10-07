@@ -7,7 +7,7 @@
 
   <ItemGroup>
     <PackageReference Include="GovukNotify" Version="8.1.0" />
-    <PackageReference Include="IPO.Common.Infrastructure" Version="2.2.461532" />
+    <PackageReference Include="IPO.Common.Infrastructure" Version="2.3.476152" />
   </ItemGroup>
 
   <ItemGroup>

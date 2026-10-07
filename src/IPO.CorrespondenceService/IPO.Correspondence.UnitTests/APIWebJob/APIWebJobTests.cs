@@ -1,12 +1,12 @@
 ﻿using AutoFixture;
 using AwesomeAssertions;
+using IPO.Common.Infrastructure.IPOAppInsightsLogger;
 using IPO.Correspondence.APIWebJob;
 using IPO.Correspondence.Interfaces.Notifications;
 using IPO.Correspondence.Models;
 using Microsoft.Extensions.Logging;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using FuncWebJob = IPO.Correspondence.APIWebJob;
 
 namespace IPO.Correspondence.UnitTests.APIWebJob
 {
@@ -15,22 +15,24 @@ namespace IPO.Correspondence.UnitTests.APIWebJob
     {
         private readonly Fixture _fixture;
         private readonly Mock<INotificationDbRepository> _mockNotificationDbRepository;
-        private readonly Mock<ILogger<FuncWebJob.Function>> _mockLogger;
+        private readonly Mock<ILogger> _mockLogger;
         private readonly Mock<IMessagingClient> _mockClient;
+        private readonly Mock<IIPOAppInsightsLogger> _mockAppInsightsLogger;
 
         public APIWebJobTests()
         {
             _mockNotificationDbRepository = new Mock<INotificationDbRepository>();
-            _mockLogger = new Mock<ILogger<FuncWebJob.Function>>();
+            _mockLogger = new Mock<ILogger>();
             _fixture = new Fixture();
             _mockClient = new Mock<IMessagingClient>();
+            _mockAppInsightsLogger = new Mock<IIPOAppInsightsLogger>();
         }
 
         [TestMethod]
         public void APIWebJobReturnsOk()
         {
             // Arrange
-            var funcWebJob = new Function(_mockClient.Object, _mockNotificationDbRepository.Object, _mockLogger.Object);
+            var funcWebJob = new Function(_mockClient.Object, _mockNotificationDbRepository.Object, _mockAppInsightsLogger.Object);
             var notificationMessage = _fixture.Create<NotificationMessage>();
             _mockNotificationDbRepository.Setup(r => r.NotifyOwnersForPendingNotificationsAsync(It.IsAny<Func<IEnumerable<NotificationOwner>, Task>>())).Returns(Task.CompletedTask);
 
@@ -58,7 +60,7 @@ namespace IPO.Correspondence.UnitTests.APIWebJob
             };
 
             // Act
-            var webjobObj = new APIWebJobHelperTests(_mockClient.Object, _mockNotificationDbRepository.Object, _mockLogger.Object);
+            var webjobObj = new APIWebJobHelperTests(_mockClient.Object, _mockNotificationDbRepository.Object, _mockAppInsightsLogger.Object);
             var result = webjobObj.TestCreateNotificationMessage(notificationowner);
 
             // Assert
@@ -76,7 +78,7 @@ namespace IPO.Correspondence.UnitTests.APIWebJob
             _mockClient.Setup(r => r.SendNotificationMessageAsync(It.IsAny<NotificationMessage>())).Returns(Task.CompletedTask);
 
             // Act
-            var webjobObj = new APIWebJobHelperTests(_mockClient.Object, _mockNotificationDbRepository.Object, _mockLogger.Object);
+            var webjobObj = new APIWebJobHelperTests(_mockClient.Object, _mockNotificationDbRepository.Object, _mockAppInsightsLogger.Object);
             var result = webjobObj.TestSendNotificationToOwnersAsync(owners);
 
             // Assert

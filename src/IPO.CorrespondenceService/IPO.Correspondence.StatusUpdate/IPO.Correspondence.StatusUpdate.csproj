@@ -9,7 +9,7 @@
   <ItemGroup>
 	  <PackageReference Include="Azure.Storage.Blobs" Version="12.25.0" />
 	  <PackageReference Include="IPO.Configuration" Version="2.0.424214" />
-	  <PackageReference Include="IPO.CTC.Common.Functions" Version="2.3.461668" />
+	  <PackageReference Include="IPO.CTC.Common.Functions" Version="2.5.476210" />
 	  <PackageReference Include="IPO.CTC.HealthChecks" Version="2.0.424215" />
     <PackageReference Include="Microsoft.Azure.Functions.Worker" Version="2.52.0" />
     <PackageReference Include="Microsoft.Azure.Functions.Worker.ApplicationInsights" Version="2.51.0" />
@@ -18,7 +18,6 @@
     <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.ServiceBus" Version="5.24.0" />
     <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.Storage.Blobs" Version="6.8.2" />
     <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.Timer" Version="4.3.1" />
-	  <PackageReference Include="IPO.Common.API" Version="2.2.461667" />
 	  <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="2.1.0" />
     <PackageReference Include="Microsoft.ApplicationInsights.WorkerService" Version="2.22.0" />
   </ItemGroup>

@@ -9,7 +9,7 @@
   <ItemGroup>
     <PackageReference Include="Azure.Storage.Blobs" Version="12.25.0" />
 	<PackageReference Include="IPO.Configuration" Version="2.0.424214" />
-	<PackageReference Include="IPO.CTC.Common.Functions" Version="2.3.461668" />
+	<PackageReference Include="IPO.CTC.Common.Functions" Version="2.5.476210" />
 	<PackageReference Include="IPO.CTC.HealthChecks" Version="2.0.424215" />
     <PackageReference Include="Microsoft.Azure.Functions.Worker.ApplicationInsights" Version="2.51.0" />
     <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.Http" Version="3.3.0" />

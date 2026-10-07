@@ -1,4 +1,6 @@
 ﻿using Azure.Messaging.ServiceBus;
+using IPO.Common.Infrastructure.IPOAppInsightsLogger;
+using IPO.Configuration;
 using IPO.Correspondence.Data.Notifications;
 using IPO.Correspondence.Interfaces.Gateways;
 using IPO.Correspondence.Interfaces.Notifications;
@@ -11,7 +13,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
-using IPO.Configuration;
 
 namespace IPO.Correspondence.APIWebJob
 {
@@ -43,7 +44,11 @@ namespace IPO.Correspondence.APIWebJob
 
             builder.ConfigureLogging((context, b) =>
             {
+                b.Services.AddLogging();
                 b.AddConsole();
+                b.AddApplicationInsightsWebJobs(o => o.ConnectionString = context.Configuration["APPLICATIONINSIGHTS_CONNECTION_STRING"]);
+                b.AddConfiguration(context.Configuration.GetSection("Logging"));
+                b.Services.AddIPOAppInsightsLogger("ctc-correspondence", "APIWebJob");
             });
 
             builder.ConfigureAppConfiguration(configBuilder =>

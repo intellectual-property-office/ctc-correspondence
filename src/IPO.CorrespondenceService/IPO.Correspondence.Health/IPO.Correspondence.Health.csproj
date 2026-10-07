@@ -9,8 +9,8 @@
 
   <ItemGroup>
     <PackageReference Include="GovukNotify" Version="7.2.0" />
-    <PackageReference Include="IPO.Common.Infrastructure" Version="2.2.461532" />
-    <PackageReference Include="IPO.CTC.Common.Functions" Version="2.3.461668" />
+    <PackageReference Include="IPO.Common.Infrastructure" Version="2.3.476152" />
+    <PackageReference Include="IPO.CTC.Common.Functions" Version="2.5.476210" />
     <PackageReference Include="IPO.CTC.HealthChecks" Version="2.0.424215" />
     <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks" Version="9.0.7" />
   </ItemGroup>

@@ -1,4 +1,5 @@
 ﻿using IPO.Common.Infrastructure;
+using IPO.Common.Infrastructure.IPOAppInsightsLogger;
 using IPO.Correspondence.Interfaces.Notifications;
 using IPO.Correspondence.Models;
 using Microsoft.Azure.WebJobs;
@@ -11,24 +12,32 @@ namespace IPO.Correspondence.APIWebJob
 {
     public class Function
     {
-        private readonly ILogger<Function> _logger;
+        private readonly IIPOAppInsightsLogger _appInsightsLogger;
         private readonly IMessagingClient _client;
         private readonly INotificationDbRepository _repository;
 
-        public Function(IMessagingClient client, INotificationDbRepository notificationRepository, ILogger<Function> logger)
+        public Function(IMessagingClient client, INotificationDbRepository notificationRepository, IIPOAppInsightsLogger appInsightsLogger)
         {
             _client = client;
-            _logger = logger;
             _repository = notificationRepository;
+            _appInsightsLogger = appInsightsLogger;
         }
 
         [NoAutomaticTrigger]
         [FunctionName("SendEmailNotificationsToOwners")]
         public async Task RunAsync()
         {
-            _logger.LogInformation($"API-WebJob-Correspondence Timer trigger web job executed at: {DateTime.Now}");
-
-            await _repository.NotifyOwnersForPendingNotificationsAsync(SendNotificationToOwnersAsync);
+            _appInsightsLogger.ProcessingStarted();
+            try
+            {
+                await _repository.NotifyOwnersForPendingNotificationsAsync(SendNotificationToOwnersAsync);
+                _appInsightsLogger.ProcessingComplete();
+            }
+            catch (Exception ex)
+            {
+                _appInsightsLogger.Error(ex);
+                throw;
+            }
         }
 
         protected async virtual Task SendNotificationToOwnersAsync(IEnumerable<NotificationOwner> owners)

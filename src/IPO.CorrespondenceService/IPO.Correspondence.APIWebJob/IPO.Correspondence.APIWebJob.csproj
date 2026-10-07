@@ -8,13 +8,14 @@
 		<PackageReference Include="Azure.Messaging.ServiceBus" Version="7.20.1" />
 		<PackageReference Include="Azure.Storage.Queues" Version="12.11.0" />
 		<PackageReference Include="IPO.Configuration" Version="2.0.424214" />
+		<PackageReference Include="IPO.Common.Infrastructure" Version="2.3.476152" />
 		<PackageReference Include="Microsoft.Azure.WebJobs.Extensions" Version="4.0.1" />
 		<PackageReference Include="Microsoft.Azure.WebJobs.Extensions.Storage" Version="5.0.1" />
+		<PackageReference Include="Microsoft.Azure.WebJobs.Logging.ApplicationInsights" Version="3.0.47" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.28" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="8.0.28" />
-		<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="9.0.7" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="10.0.12" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Console" Version="8.0.0" />
-		<PackageReference Include="IPO.Common.API" Version="2.2.461667" />
 	</ItemGroup>
 	<ItemGroup>
 		<ProjectReference Include="..\IPO.Correspondence.Data\IPO.Correspondence.Data.csproj" />
